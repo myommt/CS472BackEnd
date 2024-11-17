@@ -1,0 +1,64 @@
+### Add a new policy
+POST http://localhost:3000/policies
+Content-Type: application/json 
+
+{
+  "title": "Sample Policy 4",
+  "description": "Sample Description",
+  "owner": "Sample Owner 1",
+  "category": "General"
+}
+
+###
+### Get all policies
+GET http://localhost:3000/policies
+
+###
+### Get policies by year
+GET http://localhost:3000/policies/year/2024
+
+### Signup Request
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "testuser1",
+  "password": "testpassword"
+}
+
+### Signin Request
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+  "username": "testuser1",
+  "password": "testpassword"
+}
+ 
+
+### Test Upvote Policy - Successful
+PUT http://localhost:3000/policies/vote/1731782314334
+Content-Type: application/json
+
+{
+    "requestBodyPolicy": {
+        "id": 1731782314334
+    },
+    "requestBodyVoter": {
+        "voterid": 5
+    }
+}
+
+### Test Upvote Policy - Policy Not Found
+PUT http://localhost:3000/policies/vote/999
+Content-Type: application/json
+
+{
+    "requestBodyPolicy": {
+        "id": 999
+    },
+    "requestBodyVoter": {
+        "voterid": 1
+    }
+}
+
